@@ -4,13 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+require('dotenv').config();
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+var indexRoutes = require('./routes/index');
+var apiRoutes = require('./routes/api');
 
 var app = express();
 
-require('dotenv').config();
 require('./config/database');
 
 // view engine setup
@@ -25,8 +25,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/users', users);
+// our custom middleware to add user to req
+app.use( require('./config/auth').verifyToken );
+
+app.use('/', indexRoutes);
+app.use('/api', apiRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>Squad Up</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.min.js"></script>
+</head>
+<body ng-controller="NavController as navCtrl">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Squad Up</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a ui-sref="login">Log In</a></li>
+        <li><a ui-sref="signup">Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div ui-view></div>
+  <script src="javascripts/app.js"></script>
+  <script src="/javascripts/controllers/nav-controller.js"></script>
+  <script src="/javascripts/services/auth-interceptor.js"></script>
+  <script src="/javascripts/services/token-service.js"></script>
+  <script src="/javascripts/services/user-service.js"></script>
+  <script src="/javascripts/controllers/user-controller.js"></script>
+</body>
 </html>

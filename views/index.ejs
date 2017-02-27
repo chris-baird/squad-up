@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Squad Up</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
@@ -11,21 +12,64 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.min.js"></script>
 </head>
 <body ng-controller="NavController as navCtrl">
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Squad Up</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a ui-sref="login">Log In</a></li>
-        <li><a ui-sref="signup">Sign Up</a></li>
-      </ul>
+  <ul id="logged-out-dropdown" class="dropdown-content">
+    <li><a ui-sref="login">Log In</a></li>
+    <li><a ui-sref="signup">Sign Up</a></li>
+  </ul>
+
+  <ul id="logged-in-dropdown" class="dropdown-content">
+    <li><strong><p class="center-align">{{navCtrl.getUser().name}}</p></strong></li>
+    <li class="divider"></li>
+    <li><a ng-click="navCtrl.logout()">Log Out</a></li>
+  </ul>
+
+  <div class="navbar-fixed">
+    <nav class="grey">
+      <div class="nav-wrapper">
+        <ul class="left">
+          <li>&nbsp;&nbsp;<a ui-sref="home" class="left brand-logo">Squad Up</a></li>
+        </ul>
+        <ul class="right">
+          <li><a ui-sref="home" ng-hide="navCtrl.isLoggedIn()">All Games</a></li>
+          <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="home">All Games</a></li>
+          <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="mygames">My Games</a></li>
+          <li ng-hide="navCtrl.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="logged-out-dropdown"><i class="material-icons right">perm_identity</i></a></li>
+          <li ng-show="navCtrl.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="logged-in-dropdown"><i class="material-icons right">perm_identity</i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="row">
+    <div class="col s2">
+      <form action="">
+        <div class="input-field col s12">
+          <input type="text" placeholder="Search">
+          <select>
+            <option value="" disabled selected>System</option>
+            <option value="1">All</option>
+            <option value="2">Xbox One</option>
+            <option value="3">Playstation 4</option>
+            <option value="4">Wii U</option>
+          </select>
+        </div>
+      </form>
     </div>
-  </nav>
-  <div ui-view></div>
+    <div ui-view class="col s10"></div>
+  </div>
+  <script>
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+  </script>
+
   <script src="javascripts/app.js"></script>
   <script src="/javascripts/controllers/nav-controller.js"></script>
+  <script src="/javascripts/controllers/game-controller.js"></script>
+  <script src="/javascripts/controllers/user-controller.js"></script>
   <script src="/javascripts/services/auth-interceptor.js"></script>
   <script src="/javascripts/services/token-service.js"></script>
   <script src="/javascripts/services/user-service.js"></script>
-  <script src="/javascripts/controllers/user-controller.js"></script>
+  <script src="/javascripts/services/games-resource.js"></script>
 </body>
 </html>

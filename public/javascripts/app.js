@@ -38,5 +38,12 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
       controller: 'UserController as userCtrl'
     })
 
+    .state('mygames', {
+      url: '/mygames',
+      templateUrl: 'templates/games/mygames.html',
+      controller: 'GamesController as gameCtrl',
+      loginRequired: true
+    })
+
   $urlRouterProvider.otherwise('/home');
 }

@@ -7,6 +7,9 @@ function GamesController($state, GameService, $scope) {
   var vm = this;
 
   $scope.games = GameService.query();
+  // $scope.data = {
+  //   singleSelect: null
+  // }
 
   // vm.delGame = function(game) {
   //   game.$delete(function() {
@@ -21,7 +24,7 @@ function GamesController($state, GameService, $scope) {
       lang: vm.lang,
       desc: vm.desc,
       playTime: vm.playTime,
-      micReq: vm.micReq,
+      micReq: vm.micReq === 'yes' ? true : false,
       gamerId: vm.gamerId,
       user: user
     }, function(data) {

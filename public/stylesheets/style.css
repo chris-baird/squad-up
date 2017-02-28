@@ -1,3 +1,13 @@
 #game-card {
-  margin: 5px;
+  margin: 20px;
+  width: 300px;
+}
+
+.game-image {
+  position: relative;
+  width: 100%;
+}
+
+.inline {
+  display: inline-block;
 }

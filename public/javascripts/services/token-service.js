@@ -8,11 +8,14 @@ function TokenService() {
   var service = {
     removeToken: removeToken,
     getToken: getToken,
-    setToken: setToken
+    setToken: setToken,
+    addId: addId
   };
 
   function removeToken() {
     localStorage.removeItem('token');
+    // removing user id as well
+    localStorage.removeItem('user_id')
   }
 
   function getToken() {
@@ -34,6 +37,12 @@ function TokenService() {
       localStorage.setItem('token', token);
     } else {
       localStorage.removeItem('token');
+    }
+  }
+
+  function addId(id) {
+    if (id) {
+      localStorage.setItem('user_id', id);
     }
   }
 

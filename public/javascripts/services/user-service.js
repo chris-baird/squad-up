@@ -10,7 +10,8 @@ function userService($http, TokenService) {
     logout,
     signup,
     getUser,
-    isLoggedIn
+    isLoggedIn,
+    userGames
   };
 
   function login(credentials) {
@@ -31,6 +32,17 @@ function userService($http, TokenService) {
 
   function isLoggedIn() {
     return !!getUserFromToken();
+  }
+
+  function userGames(callback) {
+    $http({
+      url: 'api/users/games',
+      method: 'GET'
+    }).then(function(res) {
+      callback(res);
+    }).catch(function(err) {
+      callback(err);
+    })
   }
 
   return service;

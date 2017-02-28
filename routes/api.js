@@ -8,6 +8,7 @@ router.post('/users/login', userCtrl.login);
 router.get('/users/logout', userCtrl.logout);
 router.post('/users', userCtrl.create);
 router.get('/users/me', userCtrl.me);
+router.get('/games', gameCtrl.getAllGames);
 
 // Auth middleware (routes below need authentication)
 router.use(function(req, res, next) {
@@ -16,7 +17,7 @@ router.use(function(req, res, next) {
 });
 
 // Protected routes (authentication required)
-router.get('/games', gameCtrl.getAllGames);
+router.get('/users/games', userCtrl.userGames);
 router.post('/games', gameCtrl.createGame);
 router.delete('/games/:id', gameCtrl.deleteGame);
 

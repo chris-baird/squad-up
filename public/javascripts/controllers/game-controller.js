@@ -1,12 +1,22 @@
 angular.module('app')
 .controller('GamesController', GamesController);
 
-GamesController.$inject = ['$state', 'GameService', '$scope'];
+GamesController.$inject = ['$state', 'GameService', '$scope', 'UserService'];
 
-function GamesController($state, GameService, $scope) {
+function GamesController($state, GameService, $scope, UserService) {
   var vm = this;
 
   $scope.games = GameService.query();
+
+  //$scope.userGames = function() {
+    // UserService.userGames(function(data) {
+    //   $scope.user_games = data;
+    // })
+  //}
+
+  UserService.userGames(function(data) {
+    $scope.user_games = data;
+  })
 
   vm.addGame = function(gameName, system, lang, desc, playTime, micReq, gamerId, user) {
     GameService.save({

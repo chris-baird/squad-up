@@ -9,7 +9,7 @@ module.exports = {
 
 function getAllGames(req, res, next) {
   // console.log('Get All Triggered');
-  Game.find({user: req.user._id}).exec().then(games => {
+  Game.find({}).exec().then(games => {
     res.json(games);
     // console.log(games)
   }).catch(err => res.status(500).json(err));
@@ -28,3 +28,8 @@ function deleteGame(req, res, next) {
     res.json(deletedGame);
   }).catch(err => res.status(400).json(err));
 }
+
+// function userGames(req, res, next) {
+//   Game.findOne()
+// }
+

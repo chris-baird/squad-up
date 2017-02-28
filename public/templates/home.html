@@ -3,6 +3,7 @@
 <div class="row">
   <div id="game-card" class="card medium col s2" ng-repeat="game in games track by $index">
     <img class="game-image" src="http://placehold.it/350x150" alt="">
+    <!-- <a ng-show="navCtrl.isLoggedIn()" ng-click="gameCtrl.deleteGame(game)" class="secondary-content"><i class="material-icons">delete</i></a> -->
     <h5 class="inline">{{game.gameName}}</h5>
     <p class="inline">{{game.system}}</p>
     <p>{{game.lang}}</p>
@@ -10,7 +11,6 @@
     <p>{{game.playTime}}</p>
     <p>Microphone required | {{game.micReq ? 'Yes' : 'No'}}</p>
     <p>{{game.gamerId}}</p>
-    <a ng-show="navCtrl.isLoggedIn()" ng-click="gameCtrl.deleteGame(game)" class="secondary-content"><i class="material-icons">delete</i></a>
   </div>
 </div>
 </div>

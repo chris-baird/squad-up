@@ -1,13 +1,15 @@
 var User = require('../models/user');
 var jwt = require('jsonwebtoken');
 var auth = require('../config/auth');
+var Game = require('../models/game');
 var SECRET = process.env.SECRET;
 
 module.exports = {
   create,
   login,
   logout,
-  me
+  me,
+  userGames
 };
 
 function create(req, res, next) {
@@ -24,7 +26,7 @@ function login(req, res, next) {
 console.log('isMatch: ', isMatch)
       if (isMatch) {
         auth.createToken(user, res);
-        res.json({msg: 'logged in successfully'});
+        res.json({msg: 'logged in successfully', user_id: user._id});
       } else {
         return res.status(401).json({err: 'bad credentials'});
       }
@@ -41,5 +43,23 @@ function logout(req, res, next) {
 // Won't be needed with JWT auth
 function me(req, res, next) {
   res.json(req.user);
+}
+
+function userGames(req, res, next) {
+  console.log("***********************************************");
+  console.log(req.user._id);
+  Game.find({user: req.user._id}, function(err, games) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(games);
+    }
+  })
+}
+
+function deleteGame(req, res, next) {
+  Game.findByIdAndRemove(req.params.id).then(deletedGame => {
+    res.json(deletedGame);
+  }).catch(err => res.status(400).json(err));
 }
 

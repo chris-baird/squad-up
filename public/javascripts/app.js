@@ -24,7 +24,7 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
     .state('home', {
       url: '/home',
       templateUrl: 'templates/home.html',
-      controller: 'GamesController as gameCtrl'
+      controller: 'IndexController as indexCtrl'
     })
 
     .state('login', {

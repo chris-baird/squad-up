@@ -1,13 +1,57 @@
 <h1 class="center-align">My Games</h1>
-
-<ul ng-repeat="game in user_games.data">
-  <li>{{game.gameName}}</li>
-</ul>
-
+<div class="row">
+  <div id="game-card" class="card medium col s2" ng-repeat="game in user_games.data track by $index">
+    <img class="game-image" src="http://placehold.it/350x150" alt="">
+    <a ng-show="navCtrl.isLoggedIn()" ng-click="gameCtrl.deleteGame(game)" class="secondary-content"><i class="material-icons">delete</i></a>
+    <h5 class="inline">{{game.gameName}}</h5>
+    <p class="inline">{{game.system}}</p>
+    <p>{{game.lang}}</p>
+    <p>{{game.desc}}</p>
+    <p>{{game.playTime}}</p>
+    <p>Microphone required | {{game.micReq ? 'Yes' : 'No'}}</p>
+    <p>{{game.gamerId}}</p>
+  </div>
+</div>
 <br>
+<!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
 
-<!--<div class="row">
-  <form ng-submit="gameCtrl.addGame()" class="col s6">
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <div class="row">
+        <form ng-submit="gameCtrl.addGame()" class="col s4">
+          <label for="game_name">Name Of Game</label>
+          <input ng-model="gameCtrl.gameName" type="text" id="game_name" required>
+          <label for="game_sys">System</label>
+          <input ng-model="gameCtrl.system" type="text" id="game_sys" required>
+          <label for="play_time">Play Times</label>
+          <input ng-model="gameCtrl.playTime" type="text" id="play_time" required>
+          <label for="game_desc">Description</label>
+          <input ng-model="gameCtrl.desc" type="text" id="game_desc" required>
+          <label for="game_lang">Language</label>
+          <input ng-model="gameCtrl.lang" type="text" id="game_lang" required>
+          <select ng-model="gameCtrl.micReq">
+            <option value="" disabled selected>Microphone Required?</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <br>
+          <label for="gamer_tag">Gamer Name</label>
+          <input ng-model="gameCtrl.gamerId" type="text" id="gamer_tag" required>
+          <button class="btn waves-effect waves-light" type="submit" name="action">
+            <i class="material-icons right">note_add</i> Add Game
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+<!-- <div class="row">
+  <form ng-submit="gameCtrl.addGame()" class="col s4">
     <label for="game_name">Name Of Game</label>
     <input ng-model="gameCtrl.gameName" type="text" id="game_name" required>
     <label for="game_sys">System</label>
@@ -30,10 +74,15 @@
       <i class="material-icons right">note_add</i> Add Game
     </button>
   </form>
-</div>-->
+</div> -->
 
 <script>
   $(document).ready(function() {
     $('select').material_select();
+  });
+
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
   });
 </script>

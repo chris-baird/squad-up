@@ -6,7 +6,7 @@ GamesController.$inject = ['$state', 'GameService', '$scope', 'UserService'];
 function GamesController($state, GameService, $scope, UserService) {
   var vm = this;
 
-  $scope.games = GameService.query();
+  // $scope.games = GameService.query();
 
   //$scope.userGames = function() {
     // UserService.userGames(function(data) {

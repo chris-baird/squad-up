@@ -10,7 +10,7 @@
     <p>{{game.playTime}}</p>
     <p>Microphone required | {{game.micReq ? 'Yes' : 'No'}}</p>
     <p>{{game.gamerId}}</p>
-    <a ng-click="gameCtrl.deleteGame(game)" class="secondary-content"><i class="material-icons">delete</i></a>
+    <a ng-show="navCtrl.isLoggedIn()" ng-click="gameCtrl.deleteGame(game)" class="secondary-content"><i class="material-icons">delete</i></a>
   </div>
 </div>
 </div>

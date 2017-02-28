@@ -1,1 +1,13 @@
 <h1 class="center-align">All Games</h1>
+<div class="row">
+    <div id="game-card" class="card small col s2" ng-repeat="game in games track by $index">
+      <p>{{game.gameName}}</p>
+      <p>{{game.system}}</p>
+      <p>{{game.lang}}</p>
+      <p>{{game.desc}}</p>
+      <p>{{game.playTime}}</p>
+      <p>{{game.micReq}}</p>
+      <p>{{game.gamerId}}</p>
+    </div>
+</div>
+

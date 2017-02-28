@@ -1,12 +1,12 @@
 angular.module('app')
 .controller('GamesController', GamesController);
 
-GamesController.$inject = ['$state', 'GameService'];
+GamesController.$inject = ['$state', 'GameService', '$scope'];
 
-function GamesController($state, GameService) {
+function GamesController($state, GameService, $scope) {
   var vm = this;
 
-  vm.games = GameService.query();
+  $scope.games = GameService.query();
 
   // vm.delGame = function(game) {
   //   game.$delete(function() {
@@ -25,7 +25,7 @@ function GamesController($state, GameService) {
       gamerId: vm.gamerId,
       user: user
     }, function(data) {
-      console.log(data);
+      $state.go('home');
     });
   };
 }

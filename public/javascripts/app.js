@@ -23,7 +23,8 @@ function configRoutes($stateProvider, $urlRouterProvider, $httpProvider) {
 
     .state('home', {
       url: '/home',
-      templateUrl: 'templates/home.html'
+      templateUrl: 'templates/home.html',
+      controller: 'GamesController as gameCtrl'
     })
 
     .state('login', {

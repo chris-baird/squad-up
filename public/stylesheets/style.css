@@ -3,6 +3,10 @@
   width: 300px;
 }
 
+/*#side-nav {
+  position: fixed;
+}*/
+
 .game-image {
   position: relative;
   width: 100%;
@@ -11,3 +15,8 @@
 .inline {
   display: inline-block;
 }
+
+.idfk {
+  margin: 0 auto;
+}
+

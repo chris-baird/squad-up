@@ -7,15 +7,6 @@ function GamesController($state, GameService, $scope) {
   var vm = this;
 
   $scope.games = GameService.query();
-  // $scope.data = {
-  //   singleSelect: null
-  // }
-
-  // vm.delGame = function(game) {
-  //   game.$delete(function() {
-  //     vm.games.splice(vm.games.findIndex(t => t._id === game._id), 1);
-  //   });
-  // };
 
   vm.addGame = function(gameName, system, lang, desc, playTime, micReq, gamerId, user) {
     GameService.save({
@@ -29,6 +20,13 @@ function GamesController($state, GameService, $scope) {
       user: user
     }, function(data) {
       $state.go('home');
+    });
+  };
+
+  vm.deleteGame = function (game) {
+    console.log('clicked');
+    game.$delete(function() {
+      $scope.games.splice($scope.games.findIndex(t => t._id), 1);
     });
   };
 }

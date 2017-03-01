@@ -19,7 +19,7 @@ function UserController($state, UserService, TokenService) {
     UserService.login(vm.user).then(function(user) {
       $state.go('home');
     }, function() {
-      $state.go('home');
+      $state.go('login');
     });
     vm.user = {};
   };

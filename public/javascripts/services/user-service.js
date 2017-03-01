@@ -11,7 +11,8 @@ function userService($http, TokenService) {
     signup,
     getUser,
     isLoggedIn,
-    userGames
+    userGames,
+    deleteGame
   };
 
   function login(credentials) {
@@ -52,6 +53,17 @@ function userService($http, TokenService) {
   function getUserFromToken () {
     var token = TokenService.getToken();
     return token ? JSON.parse(atob(token.split('.')[1])).user : null;
+  }
+
+  function deleteGame(game_id, callback) {
+    $http({
+      url: '/api/games/' + game_id + '/',
+      method: 'DELETE'
+    }).then(function(response) {
+      callback(response);
+    }).catch(function(error) {
+      callback(error);
+    })
   }
 
 }

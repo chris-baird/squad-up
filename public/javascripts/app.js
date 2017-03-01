@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'ngResource'])
+angular.module('app', ['ui.router', 'ngResource', 'ui.materialize'])
   .config(configRoutes)
   .run(runBlock);
 

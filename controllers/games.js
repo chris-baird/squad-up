@@ -29,7 +29,3 @@ function deleteGame(req, res, next) {
   }).catch(err => res.status(400).json(err));
 }
 
-// function userGames(req, res, next) {
-//   Game.findOne()
-// }
-

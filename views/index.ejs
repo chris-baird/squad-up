@@ -11,6 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
 </head>
 <body ng-controller="NavController as navCtrl">
   <ul id="logged-out-dropdown" class="dropdown-content">
@@ -25,7 +26,7 @@
   </ul>
 
   <div class="navbar-fixed">
-    <nav class="grey">
+    <nav class="orange">
       <div class="nav-wrapper">
         <ul class="left">
           <li>&nbsp;&nbsp;<a ui-sref="home" class="left brand-logo">Squad Up</a></li>
@@ -41,23 +42,24 @@
     </nav>
   </div>
 
-  <div class="row">
+  <!-- <div class="row">
     <div id="side-nav" class="col s2">
       <form action="">
         <div class="input-field col s12">
           <input type="text" placeholder="Search">
           <select>
-            <option value="" disabled selected>System</option>
-            <option value="1">All</option>
+            <option value="" disabled selected>Platform</option>
+            <option value="1">Any</option>
             <option value="2">Xbox One</option>
             <option value="3">Playstation 4</option>
             <option value="4">Wii U</option>
+            <option value="4">Steam</option>
           </select>
         </div>
       </form>
-    </div>
-    <div ui-view class="col s10"></div>
-  </div>
+    </div> -->
+    <div ui-view class="col s12"></div>
+  <!-- </div> -->
   <script>
     $(document).ready(function() {
       $('select').material_select();

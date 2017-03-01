@@ -1,8 +1,39 @@
-<h1 class="center-align">All Games</h1>
+<br>
+<div class="test">
+  <div class="row">
+    <form class="col s12">
+    <div class="row">
+      <div class="input-field col s4">
+        <select>
+          <option value="0" selected>Any</option>
+          <option value="2">Xbox One</option>
+          <option value="3">Playstation 4</option>
+          <option value="3">Steam</option>
+        </select>
+        <label>Platform</label>
+      </div>
+      <div class="input-field col s4">
+        <select>
+          <option value="1" selected>No Pref</option>
+              <option value="2">Yes</option>
+              <option value="3">No</option>
+        </select>
+        <label>Mic Required</label>
+      </div>
+      <div class="input-field col s4">
+        <input placeholder="Minecraft..." id="first_name" type="text" class="validate">
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+<br>
+<br>
+<br>
+<!-- <h1 class="center-align">All Games</h1> -->
 <div class="row">
   <div id="game-card" class="card medium col s2" ng-repeat="game in games track by $index">
     <img class="game-image" src="http://placehold.it/350x150" alt="">
-    <!-- <a ng-show="navCtrl.isLoggedIn()" ng-click="gameCtrl.deleteGame(game)" class="secondary-content"><i class="material-icons">delete</i></a> -->
     <h5 class="inline">{{game.gameName}}</h5>
     <p class="inline">{{game.system}}</p>
     <p>{{game.lang}}</p>
@@ -12,4 +43,10 @@
     <p>{{game.gamerId}}</p>
   </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+  </script>
 

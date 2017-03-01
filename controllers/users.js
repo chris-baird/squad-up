@@ -46,8 +46,6 @@ function me(req, res, next) {
 }
 
 function userGames(req, res, next) {
-  console.log("***********************************************");
-  console.log(req.user._id);
   Game.find({user: req.user._id}, function(err, games) {
     if (err) {
       res.send(err);
@@ -57,9 +55,4 @@ function userGames(req, res, next) {
   })
 }
 
-function deleteGame(req, res, next) {
-  Game.findByIdAndRemove(req.params.id).then(deletedGame => {
-    res.json(deletedGame);
-  }).catch(err => res.status(400).json(err));
-}
 

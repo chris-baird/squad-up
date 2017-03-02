@@ -1,6 +1,11 @@
-<h2>Log In</h2>
+<br>
+<br>
+<br>
+<br>
 <div class="row">
-  <form ng-submit="userCtrl.login()" class="col s12">
+  <div class="col s3"></div>
+  <form ng-submit="userCtrl.login()" class="col s4">
+    <h1 class="center-align">Log In</h1>
     <div class="input-field">
       <input ng-model="userCtrl.user.email" autocomplete="off" id="email" type="email" required>
       <label for="email">Email</label>
@@ -13,4 +18,5 @@
         <i class="material-icons right"></i> Log In
     </button>
   </form>
+  <div class="col s6"></div>
 </div>

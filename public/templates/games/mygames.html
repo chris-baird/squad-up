@@ -10,14 +10,13 @@
     <h4 id="card-game-title" class="margin-auto">{{game.gameName}}</h4>
     </div>
     <a ng-click="gameCtrl.deleteGame(game._id)" id="del-btn" class="secondary-content"><i class="material-icons">delete</i></a>
-    <h6><strong>Platform:</strong> {{game.system}}</h6>
-    <h6><strong>Gamertag:</strong> {{game.gamerId}}</h6>
+    <h6 class="platform-name"><strong>Platform:</strong> {{game.system}}</h6>
+    <h6 platform-name><strong>Gamertag:</strong> {{game.gamerId}}</h6>
     <hr>
     <p><strong>Description:</strong> {{game.desc}}<p>
-    <!-- <p>{{game.playTime}}</p> -->
-    <small><p><strong>Microphone required |</strong> {{game.micReq ? 'Yes' : 'No'}}</p></small>
-    <small><p><strong>Language:</strong> {{game.lang}}</p></small>
-    <small><p class="inline"><strong>Created At:</strong> {{game.date}}</p></small>
+    <small><p id="mic-req-p"><strong>Microphone required |</strong> {{game.micReq ? 'Yes' : 'No'}}</p></small>
+    <small><p class="lang-creat-margin"><strong>Language:</strong> {{game.lang}}</p></small>
+    <small><p class="inline lang-creat-margin""><strong>Created At:</strong> {{game.date}}</p></small>
     <a id="msg-btn" ng-hide="navCtrl.isState('mygames')" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">email</i></a>
   </div>
 </div>

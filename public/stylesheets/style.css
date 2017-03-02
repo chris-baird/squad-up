@@ -11,6 +11,10 @@
   text-align: center;
 }
 
+#new-game-submit-btn {
+  margin-top: 20px;
+}
+
 #card-game-title {
   background-color: rgba(0,0,0, .4);
   color: white;
@@ -41,23 +45,30 @@
   margin-left: -2%;
 }
 
-/*#imgPlace{
-    position:relative;
-}*/
-
-/*#imgPlace h1{
-    position:absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 1;
-}*/
-
 .game-image {
   position: relative;
   width: 100%;
   background-image: url(http://i.imgur.com/7t8BCev.jpg);
   background-size: cover;
   height: 30%;
+}
+
+.sign-up-input {
+  width: 300px;
+}
+
+#mic-req-p {
+  margin-top: 70px;
+  margin-bottom: 5px;
+}
+
+.lang-creat-margin {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.platform-name {
+    margin-top: 15px;
 }
 
 .margin-auto {

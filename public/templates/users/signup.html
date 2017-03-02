@@ -1,15 +1,19 @@
-<h2>Sign Up</h2>
+<br>
+<br>
+<br>
+<br>
 <div class="row">
-  <form ng-submit="userCtrl.signup()" class="col s12">
-    <div class="input-field">
+  <form ng-submit="userCtrl.signup()" class="col s6">
+  <h1>New Account</h1>
+    <div class="input-field sign-up-input">
       <input ng-model="userCtrl.user.name" autocomplete="off" id="name" type="text" required>
       <label for="name">Name</label>
     </div>
-    <div class="input-field">
+    <div class="input-field sign-up-input">
       <input ng-model="userCtrl.user.email" autocomplete="off" id="email" type="email" required>
       <label for="email">Email</label>
     </div>
-    <div class="input-field">
+    <div class="input-field sign-up-input">
       <input ng-model="userCtrl.user.password" autocomplete="off" id="password" type="password" required>
       <label for="password">Password</label>
     </div>
@@ -17,4 +21,14 @@
         <i class="material-icons right"></i> Sign Up
     </button>
   </form>
+  <div class="col s6">
+    <h1>Sign up to...</h1>
+    <br>
+    <ul>
+      <li><h5>Create custom Game Listings</h5></li>
+      <li><h5>Message Other Gamers from their listings</h5></li>
+      <li><h5>Have a favorites page(Comming Soon...)</h5></li>
+      <li><h5>Custom player profile(Comming Soon...)</h5></li>
+    </ul>
+  </div>
 </div>

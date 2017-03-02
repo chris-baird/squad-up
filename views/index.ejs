@@ -65,7 +65,7 @@
             <input ng-model="navCtrl.gamerId" maxlength="20" type="text" id="gamer_tag" required>
           </div>
           <div id="new-game-submit">
-            <button class="btn waves-effect waves-light modal-action modal-close" type="submit" name="action">
+            <button id="new-game-submit-btn" class="btn waves-effect waves-light modal-action modal-close" type="submit" name="action">
               <i class="material-icons right">note_add</i> Add Game
             </button>
           </div>
@@ -97,12 +97,12 @@
   <!-- Side Nav -->
   <div class="row">
     <div class="col s2 navbar-fixed">
-      <form action="" id="side-nav">
-        <div class="input-field">
+      <form action="" id="side-nav" ng-hide="navCtrl.isState('signup')">
+        <div class="input-field" ng-hide="navCtrl.isState('login')">
           <label for="first_name">Search For A Game</label>
           <input placeholder="Halo..." id="first_name" type="text" class="validate" ng-model="search.gameName">
-          <select>
-            <option value="" disabled selected>Platform</option>
+          <select class="form-control" ng-model="selectedSystem" ng-options="system for system in games.system"></select>
+            <!-- <option value="" disabled selected>Platform</option>
             <option value="1">All</option>
             <option value="2">Steam</option>
             <option value="3">PC</option>
@@ -112,7 +112,7 @@
             <option value="6">Nintendo 3DS</option>
             <option value="6">Xbox 360</option>
             <option value="6">Playstation 3</option>
-          </select>
+          </select> -->
           <select>
             <option value="" disabled selected>Mic Required?</option>
             <option value="1">All</option>

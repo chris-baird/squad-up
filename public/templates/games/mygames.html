@@ -1,12 +1,28 @@
-<h1 class="center-align">My Games</h1>
+<h3 class="center-align">My Games</h3>
 <!-- Modal Trigger -->
-<div class="col">
+<!-- <div class="col">
     <a class='btn' data-target='demoModal' modal>Add Game</a>
-</div>
-<br>
-<br>
+</div> -->
 <div class="row">
-  <div id="game-card" class="card medium col s2 game-{{game._id}}" ng-repeat="game in user_games.data track by $index">
+  <div id="game-card" class="card medium col s2" ng-repeat="game in gameCtrl.games | filter:search:strict track by $index">
+    <!-- <img class="game-image" src="http://placehold.it/350x150" alt=""> -->
+    <div class="game-image">
+    <h4 id="card-game-title" class="margin-auto">{{game.gameName}}</h4>
+    </div>
+    <a ng-click="gameCtrl.deleteGame(game._id)" id="del-btn" class="secondary-content"><i class="material-icons">delete</i></a>
+    <p>Platform: {{game.system}}</p>
+    <p>{{game.gamerId}}</p>
+    <hr>
+    <p>Description: {{game.desc}}</p>
+    <!-- <p>{{game.playTime}}</p> -->
+    <small><p>Microphone required | {{game.micReq ? 'Yes' : 'No'}}</p></small>
+    <small><p>Language: {{game.lang}}</p></small>
+    <small><p class="inline">Created At: {{game.date}}</p></small>
+    <a id="msg-btn" ng-hide="navCtrl.isState('mygames')" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">email</i></a>
+  </div>
+</div>
+<!-- <div class="row">
+  <div id="game-card" class="card medium col s2 game-{{game._id}}" ng-repeat="game in user_games.data | filter:search:strict track by $index">
     <img class="game-image" src="http://placehold.it/350x150" alt="">
     <a ng-click="gameCtrl.deleteGame(game._id)" class="secondary-content"><i class="material-icons">delete</i></a>
     <h5 class="inline">{{game.gameName}}</h5>
@@ -17,10 +33,10 @@
     <p>Microphone required | {{game.micReq ? 'Yes' : 'No'}}</p>
     <p>{{game.gamerId}}</p>
   </div>
-</div>
+</div> -->
 <br>
 <!-- Modal Structure -->
-<div id="demoModal" class="modal">
+<!-- <div id="demoModal" class="modal">
   <div class="modal-content">
     <p class="center-align">Add a game</p>
     <div class="row">
@@ -52,15 +68,15 @@
   <div class="modal-footer">
     <a href="#!/mygames" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
   </div>
-</div>
+</div> -->
 
 <script>
   $(document).ready(function() {
     $('select').material_select();
   });
 
-  $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal').modal();
-  });
+  // $(document).ready(function(){
+  //   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+  //   $('.modal').modal();
+  // });
 </script>

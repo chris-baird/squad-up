@@ -8,15 +8,12 @@ module.exports = {
 };
 
 function getAllGames(req, res, next) {
-  // console.log('Get All Triggered');
-  Game.find({}).exec().then(games => {
+  Game.find({}).populate('user').exec().then(games => {
     res.json(games);
-    // console.log(games)
   }).catch(err => res.status(500).json(err));
 }
 
 function createGame(req, res, next) {
-  // console.log('Create Triggered');
   req.body.user = req.user._id;
   Game.create(req.body).then(newGame => {
     res.status(201).json(newGame);

@@ -1,4 +1,4 @@
-<br>
+<!-- <br>
 <div class="test">
   <div class="row">
     <form class="col s12">
@@ -21,7 +21,7 @@
         <label>Mic Required</label>
       </div>
       <div class="input-field col s4">
-        <input placeholder="Minecraft..." id="first_name" type="text" class="validate">
+        <input placeholder="Minecraft..." id="first_name" type="text" class="validate" ng-model="search.gameName">
       </div>
     </div>
   </form>
@@ -29,24 +29,53 @@
 </div>
 <br>
 <br>
-<br>
-<!-- <h1 class="center-align">All Games</h1> -->
+<br> -->
+<h3 class="center-align">All Games</h3>
 <div class="row">
-  <div id="game-card" class="card medium col s2" ng-repeat="game in games track by $index">
-    <img class="game-image" src="http://placehold.it/350x150" alt="">
-    <h5 class="inline">{{game.gameName}}</h5>
-    <p class="inline">{{game.system}}</p>
-    <p>{{game.lang}}</p>
-    <p>{{game.desc}}</p>
-    <p>{{game.playTime}}</p>
-    <p>Microphone required | {{game.micReq ? 'Yes' : 'No'}}</p>
+  <div id="game-card" class="card medium col s2" ng-repeat="game in games | filter:search:strict track by $index">
+    <!-- <img class="game-image" src="http://placehold.it/350x150" alt=""> -->
+    <div class="game-image">
+    <h4 id="card-game-title" class="margin-auto">{{game.gameName}}</h4>
+    </div>
+    <p>Platform: {{game.system}}</p>
     <p>{{game.gamerId}}</p>
+    <hr>
+    <p>Description: {{game.desc}}</p>
+    <!-- <p>{{game.playTime}}</p> -->
+    <small><p>Microphone required | {{game.micReq ? 'Yes' : 'No'}}</p></small>
+    <small><p>Language: {{game.lang}}</p></small>
+    <small><p class="inline">Created At: {{game.date}}</p></small>
+    <a href="#modal1" ng-click="setEmail(game.user.email)" ng-show="navCtrl.isLoggedIn()" id="msg-btn" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">email</i></a>
   </div>
 </div>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Send Message To {{game.gamerId}}</h4>
+      <input placeholder="Your Gamer Name Here..." type="text" class="validate" ng-model="indexCtrl.subject">
+      <textarea class="materialize-textarea" placeholder="Your Message Here..." ng-model="indexCtrl.text"></textarea>
+      <a class='btn validate modal-close' ng-click="indexCtrl.sendEmail(user_email)">Send Message</a>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+    </div>
+  </div>
 
-<script>
+
+
+
+
+
+
+
+  <script>
     $(document).ready(function() {
       $('select').material_select();
+    });
+
+    $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal').modal();
     });
   </script>
 

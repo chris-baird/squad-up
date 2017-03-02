@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var userCtrl = require('../controllers/users');
 var gameCtrl = require('../controllers/games');
+var mailCtrl = require('../controllers/mail');
+
+
 
 // Public routes (no auth required)
 router.post('/users/login', userCtrl.login);
@@ -17,6 +20,7 @@ router.use(function(req, res, next) {
 });
 
 // Protected routes (authentication required)
+router.post('/mail', mailCtrl.sendMail); // handle the route at yourdomain.com/sayHello
 router.get('/users/games', userCtrl.userGames);
 router.post('/games', gameCtrl.createGame);
 router.delete('/games/:id', gameCtrl.deleteGame);

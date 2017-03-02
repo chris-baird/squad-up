@@ -8,7 +8,7 @@ var gameSchema = new mongoose.Schema({
   system: {
     type: String,
     required: true,
-    enum: ['Steam', 'Xbox One', 'Playstation 4', 'Xbox 360', 'Playstation 3', '3DS', 'Wii U']
+    enum: ['Steam', 'PC', 'Xbox One', 'Playstation 4', 'Xbox 360', 'Playstation 3', '3DS', 'Wii U']
   },
   lang: {
     type: String,
@@ -30,6 +30,10 @@ var gameSchema = new mongoose.Schema({
   gamerId: {
     type: String,
     required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,

@@ -6,19 +6,18 @@ GamesController.$inject = ['$state', 'GameService', '$scope', 'UserService'];
 function GamesController($state, GameService, $scope, UserService) {
   var vm = this;
 
-  $scope.games = GameService.query();
+  vm.games = GameService.forUser();
 
-  //$scope.userGames = function() {
-    // UserService.userGames(function(data) {
-    //   $scope.user_games = data;
-    // })
-  //}
+  // UserService.userGames(function(data) {
+  //   $scope.user_games = data;
+  // })
 
-  UserService.userGames(function(data) {
-    $scope.user_games = data;
-    console.log()
-  })
+  // UserService.userGames().then(function(data) {
+  //   return $scope.user_games = data;
+  //   //console.log(data.$promise);
+  // })
 
+  // may need to remove
   vm.addGame = function(gameName, system, lang, desc, playTime, micReq, gamerId, user) {
     GameService.save({
       gameName: vm.gameName,
@@ -31,6 +30,7 @@ function GamesController($state, GameService, $scope, UserService) {
       user: user
     }, function(data) {
       $state.go('mygames');
+      window.location.reload();
     });
   };
 

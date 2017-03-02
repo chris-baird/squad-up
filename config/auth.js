@@ -23,11 +23,12 @@ module.exports.verifyToken = function(req, res, next) {
         // valid token, so add user to req
         req.user = decoded.user;
         // add a new token to implement sliding expiration!
-        module.exports.createToken(decoded.user, res);
+        // module.exports.createToken(decoded.user, res);
         next();
       }
     });
   } else {
+    res.removeHeader('Authorization');
     next();
   }
 }

@@ -25,8 +25,52 @@
     <li><a ng-click="navCtrl.logout()">Log Out</a></li>
   </ul>
 
+  <!-- Modal -->
+  <div id="demoModal" class="modal">
+  <div class="modal-content">
+    <p class="center-align">Add a game</p>
+    <div class="row">
+      <form ng-submit="navCtrl.addGame()" class="col s4">
+        <label for="game_name">Name Of Game</label>
+        <input ng-model="navCtrl.gameName" type="text" id="game_name" required>
+        <select ng-model="navCtrl.system">
+          <option value="" disabled selected>System</option>
+          <option value="Steam">Steam</option>
+          <option value="PC">PC</option>
+          <option value="Xbox One">Xbox One</option>
+          <option value="Playstation 4">Playstation 4</option>
+          <option value="Wii U">Wii U</option>
+          <option value="Xbox 360">Xbox 360</option>
+          <option value="Playstation 3">Playstation 3</option>
+          <option value="3DS">Nintendo 3DS</option>
+        </select><br>
+        <label for="play_time">Play Times</label>
+        <input ng-model="navCtrl.playTime" type="text" id="play_time" required>
+        <label for="game_desc">Description</label>
+        <input ng-model="navCtrl.desc" type="text" id="game_desc" required>
+        <label for="game_lang">Language</label>
+        <input ng-model="navCtrl.lang" type="text" id="game_lang" required>
+        <select ng-model="navCtrl.micReq">
+          <option value="" disabled selected>Microphone Required?</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <br>
+        <label for="gamer_tag">Gamer Name</label>
+        <input ng-model="navCtrl.gamerId" type="text" id="gamer_tag" required>
+        <button class="btn waves-effect waves-light modal-action modal-close" type="submit" name="action">
+          <i class="material-icons right">note_add</i> Add Game
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!/mygames" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
+
   <div class="navbar-fixed">
-    <nav class="orange">
+    <nav id="main-nav" class="">
       <div class="nav-wrapper">
         <ul class="left">
           <li>&nbsp;&nbsp;<a ui-sref="home" class="left brand-logo">Squad Up</a></li>
@@ -41,28 +85,52 @@
       </div>
     </nav>
   </div>
-
-  <!-- <div class="row">
-    <div id="side-nav" class="col s2">
-      <form action="">
-        <div class="input-field col s12">
-          <input type="text" placeholder="Search">
+  <br>
+  <div class="row">
+    <div class="col s2 navbar-fixed">
+      <form action="" id="side-nav">
+        <div class="input-field">
+          <input placeholder="Minecraft..." id="first_name" type="text" class="validate" ng-model="search.gameName">
           <select>
             <option value="" disabled selected>Platform</option>
-            <option value="1">Any</option>
-            <option value="2">Xbox One</option>
-            <option value="3">Playstation 4</option>
-            <option value="4">Wii U</option>
-            <option value="4">Steam</option>
+            <option value="1">All</option>
+            <option value="2">Steam</option>
+            <option value="3">PC</option>
+            <option value="4">Xbox One</option>
+            <option value="5">Playstation 4</option>
+            <option value="6">Wii U</option>
+            <option value="6">Nintendo 3DS</option>
+            <option value="6">Xbox 360</option>
+            <option value="6">Playstation 3</option>
+          </select>
+          <select>
+            <option value="" disabled selected>Mic Required?</option>
+            <option value="1">All</option>
+            <option value="2">Yes</option>
+            <option value="3">No</option>
+          </select>
+          <select>
+            <option value="" disabled selected>Created At</option>
+            <option value="1">Any Time</option>
+            <option value="2">Newest</option>
+            <option value="3">Oldest</option>
           </select>
         </div>
+        <div ng-show="navCtrl.isState('mygames')">
+          <a class='btn' data-target='demoModal' modal>Add Game</a>
+        </div>
       </form>
-    </div> -->
-    <div ui-view class="col s12"></div>
-  <!-- </div> -->
+    </div>
+    <div ui-view id="ui-view-id" class="col s10"></div>
+  </div>
   <script>
     $(document).ready(function() {
       $('select').material_select();
+    });
+
+    $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal').modal();
     });
   </script>
 
@@ -72,6 +140,7 @@
   <script src="/javascripts/controllers/game-controller.js"></script>
   <script src="/javascripts/controllers/user-controller.js"></script>
   <script src="/javascripts/services/auth-interceptor.js"></script>
+  <script src="/javascripts/services/email-service.js"></script>
   <script src="/javascripts/services/token-service.js"></script>
   <script src="/javascripts/services/user-service.js"></script>
   <script src="/javascripts/services/games-resource.js"></script>

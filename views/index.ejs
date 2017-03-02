@@ -26,49 +26,56 @@
     <li><a ng-click="navCtrl.logout()">Log Out</a></li>
   </ul>
 
-  <!-- Modal -->
+  <!-- Add Game Modal -->
   <div id="demoModal" class="modal">
-  <div class="modal-content">
-    <p class="center-align">Add a game</p>
-    <div class="row">
-      <form ng-submit="navCtrl.addGame()" class="col s4">
-        <label for="game_name">Name Of Game</label>
-        <input ng-model="navCtrl.gameName" type="text" id="game_name" required>
-        <select ng-model="navCtrl.system">
-          <option value="" disabled selected>System</option>
-          <option value="Steam">Steam</option>
-          <option value="PC">PC</option>
-          <option value="Xbox One">Xbox One</option>
-          <option value="Playstation 4">Playstation 4</option>
-          <option value="Wii U">Wii U</option>
-          <option value="Xbox 360">Xbox 360</option>
-          <option value="Playstation 3">Playstation 3</option>
-          <option value="3DS">Nintendo 3DS</option>
-        </select><br>
-        <!-- <label for="play_time">Play Times</label> -->
-        <!-- <input ng-model="navCtrl.playTime" type="text" id="play_time" required> -->
-        <label for="game_desc">Description</label>
-        <input ng-model="navCtrl.desc" type="text" id="game_desc" required>
-        <label for="game_lang">Language</label>
-        <input ng-model="navCtrl.lang" type="text" id="game_lang" required>
-        <select ng-model="navCtrl.micReq">
-          <option value="" disabled selected>Microphone Required?</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        <br>
-        <label for="gamer_tag">Gamer Name</label>
-        <input ng-model="navCtrl.gamerId" type="text" id="gamer_tag" required>
-        <button class="btn waves-effect waves-light modal-action modal-close" type="submit" name="action">
-          <i class="material-icons right">note_add</i> Add Game
-        </button>
+    <div id="add-game-modal" class="modal-content">
+      <h3 class="center-align"><strong>Add A Game</strong></h3>
+      <br>
+      <form ng-submit="navCtrl.addGame()">
+        <div class="row">
+          <div class="col s6">
+            <label for="game_name">Name Of Game</label>
+            <input ng-model="navCtrl.gameName" maxlength="19" type="text" id="game_name" required><br>
+            <label for="game_platform">Platform</label>
+            <select id="game_platform" ng-model="navCtrl.system">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="Steam">Steam</option>
+              <option value="PC">PC</option>
+              <option value="Xbox One">Xbox One</option>
+              <option value="Playstation 4">Playstation 4</option>
+              <option value="Wii U">Wii U</option>
+              <option value="Xbox 360">Xbox 360</option>
+              <option value="Playstation 3">Playstation 3</option>
+              <option value="3DS">Nintendo 3DS</option>
+            </select><br>
+            <label for="game_desc">Description(40 Char limit)</label>
+            <input ng-model="navCtrl.desc" maxlength="40" type="text" id="game_desc" required>
+          </div>
+          <div class="col s6">
+            <label for="game_lang">Language</label>
+            <input ng-model="navCtrl.lang" type="text" id="game_lang" maxlength="15" required><br>
+            <label for="game_mic">Microphone Required?</label>
+            <select id="game_mic" ng-model="navCtrl.micReq">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <br>
+            <label for="gamer_tag">Gamer Name</label>
+            <input ng-model="navCtrl.gamerId" maxlength="20" type="text" id="gamer_tag" required>
+          </div>
+          <div id="new-game-submit">
+            <button class="btn waves-effect waves-light modal-action modal-close" type="submit" name="action">
+              <i class="material-icons right">note_add</i> Add Game
+            </button>
+          </div>
+        </div>
       </form>
     </div>
+    <div class="modal-footer">
+      <a href="#!/mygames" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+    </div>
   </div>
-  <div class="modal-footer">
-    <a href="#!/mygames" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-  </div>
-</div>
 
   <div class="navbar-fixed">
     <nav id="main-nav" class="">
@@ -87,11 +94,13 @@
     </nav>
   </div>
   <br>
+  <!-- Side Nav -->
   <div class="row">
     <div class="col s2 navbar-fixed">
       <form action="" id="side-nav">
         <div class="input-field">
-          <input placeholder="Minecraft..." id="first_name" type="text" class="validate" ng-model="search.gameName">
+          <label for="first_name">Search For A Game</label>
+          <input placeholder="Halo..." id="first_name" type="text" class="validate" ng-model="search.gameName">
           <select>
             <option value="" disabled selected>Platform</option>
             <option value="1">All</option>
@@ -130,7 +139,6 @@
     });
 
     $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
       $('.modal').modal();
     });
   </script>

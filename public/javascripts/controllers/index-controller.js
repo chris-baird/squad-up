@@ -21,6 +21,8 @@ function IndexController($state, GameService, $scope, UserService, EmailService)
     });
   }
 
+
+
 }
 
 

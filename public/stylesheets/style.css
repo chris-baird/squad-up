@@ -3,6 +3,14 @@
   width: 350px;
 }
 
+#add-game-modal {
+  padding-bottom: 0;
+}
+
+#new-game-submit {
+  text-align: center;
+}
+
 #card-game-title {
   background-color: rgba(0,0,0, .4);
   color: white;

@@ -15,9 +15,9 @@ function IndexController($state, GameService, $scope, UserService, EmailService)
     EmailService.save({
       to: email,
       subject: vm.subject,
-      text: vm.subject
+      text: vm.text
     },function(email) {
-      console.log(email);
+      // console.log(email);
     });
   }
 

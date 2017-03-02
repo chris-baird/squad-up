@@ -20,7 +20,7 @@ var gameSchema = new mongoose.Schema({
   },
   playTime: {
     type: String,
-    required: true
+    required: false
   },
   micReq: {
     type: Boolean,

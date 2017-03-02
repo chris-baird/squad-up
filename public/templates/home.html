@@ -51,7 +51,7 @@
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Send Message To {{game.gamerId}}</h4>
+      <h4>Send Message To {{user_email}}</h4>
       <input placeholder="Your Gamer Name Here..." type="text" class="validate" ng-model="indexCtrl.subject">
       <textarea class="materialize-textarea" placeholder="Your Message Here..." ng-model="indexCtrl.text"></textarea>
       <a class='btn validate modal-close' ng-click="indexCtrl.sendEmail(user_email)">Send Message</a>

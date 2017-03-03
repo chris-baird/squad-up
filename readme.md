@@ -15,6 +15,7 @@
 7. AJAX
 8. Mlab
 9. Google Materialize
+10. Nodemailer
 
 ### Getting Started
 1. The Website can be reached  [Here](http://squad-up-project.herokuapp.com/)

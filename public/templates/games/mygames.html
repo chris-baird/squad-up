@@ -8,17 +8,13 @@
     <h6 class="platform-name"><strong>Platform:</strong> {{game.system}}</h6>
     <h6 platform-name><strong>Gamertag:</strong> {{game.gamerId}}</h6>
     <hr>
-    <p><strong>Description:</strong> {{game.desc}}<p>
-    <small><p id="mic-req-p"><strong>Microphone required |</strong> {{game.micReq ? 'Yes' : 'No'}}</p></small>
-    <small><p class="lang-creat-margin"><strong>Language:</strong> {{game.lang}}</p></small>
-    <small><p class="inline lang-creat-margin""><strong>Created At:</strong> {{game.date}}</p></small>
+    <p><strong>Description:</strong> {{game.desc}}</p>
+    <div class="info-stack">
+      <small><p id="mic-req-p"><strong>Microphone required |</strong> {{game.micReq ? 'Yes' : 'No'}}</p></small>
+      <small><p class="lang-creat-margin"><strong>Language:</strong> {{game.lang}}</p></small>
+      <small><p class="inline lang-creat-margin"><strong>Created:</strong> {{game.date | date:'fullDate'}}</p></small>
+    </div>
     <a id="msg-btn" ng-hide="navCtrl.isState('mygames')" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">email</i></a>
   </div>
 </div>
 <br>
-
-<script>
-  $(document).ready(function() {
-    // $('select').material_select();
-  });
-</script>

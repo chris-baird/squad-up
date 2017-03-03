@@ -39,8 +39,6 @@ function logout(req, res, next) {
   res.status(200).json({});
 }
 
-// Called by client to get logged in user doc
-// Won't be needed with JWT auth
 function me(req, res, next) {
   res.json(req.user);
 }

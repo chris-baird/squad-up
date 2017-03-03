@@ -3,8 +3,6 @@ angular.module('app')
 
 UserController.$inject = ['$state', 'UserService', 'TokenService'];
 
-// setting user id to local storage in here
-
 function UserController($state, UserService, TokenService) {
   var vm = this;
 

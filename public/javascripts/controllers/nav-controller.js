@@ -20,7 +20,6 @@ function NavController($timeout, $state, UserService, GameService, TokenService)
   });
 
   vm.logout = function() {
-    // UserService.logout();
     TokenService.removeToken();
     $state.go('home');
   };

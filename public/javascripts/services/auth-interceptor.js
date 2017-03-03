@@ -5,7 +5,6 @@ AuthInterceptor.$inject = ['TokenService'];
 
 function AuthInterceptor(TokenService) {
   return {
-    // Add request, response, requestError and/or responseError methods
 
     request: function(config) {
       var token = TokenService.getToken();

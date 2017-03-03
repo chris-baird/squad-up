@@ -2,15 +2,17 @@
 <div class="row">
   <div id="game-card" class="card medium col s2" ng-repeat="game in games | filter:search:strict | filter:navCtrl.filter() | orderBy: 'created_at':true track by $index">
     <div class="game-image">
-    <h4 id="card-game-title" class="margin-auto">{{game.gameName}}</h4>
+      <h4 id="card-game-title" class="margin-auto">{{game.gameName}}</h4>
     </div>
     <h6 class="platform-name"><strong>Platform:</strong> {{game.system}}</h6>
     <h6 platform-name><strong>Gamertag:</strong> {{game.gamerId}}</h6>
     <hr>
-    <p><strong>Description:</strong> {{game.desc}}<p>
-    <small><p id="mic-req-p"><strong>Microphone required |</strong> {{game.micReq ? 'Yes' : 'No'}}</p></small>
-    <small><p class="lang-creat-margin"><strong>Language:</strong> {{game.lang}}</p></small>
-    <small><p class="inline lang-creat-margin""><strong>Created At:</strong> {{indexCtrl.formatTime(game.date)}}</p></small>
+    <p><strong>Description:</strong> {{game.desc}}</p>
+    <div class="info-stack">
+      <small><p id="mic-req-p"><strong>Microphone required |</strong> {{game.micReq ? 'Yes' : 'No'}}</p></small>
+      <small><p class="lang-creat-margin"><strong>Language:</strong> {{game.lang}}</p></small>
+      <small><p class="inline lang-creat-margin"><strong>Created:</strong> {{game.date | date:'fullDate'}}</p></small>
+    </div>
     <a href="#modal1" ng-click="setEmail(game.user.email, game.gamerId)" ng-show="navCtrl.isLoggedIn()" id="msg-btn" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">email</i></a>
   </div>
 </div>
@@ -18,10 +20,13 @@
 <!-- Message Modal -->
 <div id="modal1" class="modal">
   <div class="modal-content">
-    <h4>Send Message To {{user_name}}</h4>
-    <input placeholder="Your Gamer Name Here..." type="text" class="validate" ng-model="indexCtrl.subject">
-    <textarea class="materialize-textarea" placeholder="Your Message Here..." ng-model="indexCtrl.text"></textarea>
-    <a class='btn validate modal-close' ng-click="indexCtrl.sendEmail(user_email)">Send Message</a>
+    <h4 class="center-align">Send Message To:</h4>
+    <h5 class="center-align">{{user_name}}</h5><br>
+    <div class="center-align">
+      <input id="user-msg-input" placeholder="Your Gamer Name Here..." type="text" class="validate" ng-model="indexCtrl.subject"><br>
+      <textarea id="user-msg-text-area" class="materialize-textarea" placeholder="Your Message Here..." ng-model="indexCtrl.text"></textarea><br><br>
+      <a class='btn validate modal-close' ng-click="indexCtrl.sendEmail(user_email)">Send Message</a>
+    </div>
   </div>
   <div class="modal-footer">
     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
@@ -29,12 +34,7 @@
 </div>
 
 <script>
-  $(document).ready(function() {
-    // $('select').material_select();
-  });
-
   $(document).ready(function(){
-  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
   });
 </script>

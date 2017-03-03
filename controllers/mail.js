@@ -8,18 +8,17 @@ module.exports = {
 var transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
-    user: process.env.EMAILSERVICEUSER, // Your email id
-    pass: process.env.EMAILSERVICEPASS // Your password
+    user: process.env.EMAILSERVICEUSER,
+    pass: process.env.EMAILSERVICEPASS
   }
 });
 
 function sendMail(req, res, next) {
   var mailOptions = {
-    from: process.env.EMAILSERVICEUSER, // sender address
-    to: req.body.to, // list of receivers
-    subject: req.body.subject, // Subject line
-    text: req.body.text //, // plaintext body
-    // html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
+    from: process.env.EMAILSERVICEUSER,
+    to: req.body.to,
+    subject: req.body.subject,
+    text: req.body.text
   };
   transporter.sendMail(mailOptions, function(err, info) {
     if(err) {

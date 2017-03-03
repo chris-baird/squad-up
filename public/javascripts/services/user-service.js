@@ -41,18 +41,14 @@ function userService($http, TokenService, $q) {
       url: 'api/users/games',
       method: 'GET'
     }).then(function(res) {
-      //callback(res);
       def.resolve(res);
     }).catch(function(err) {
-      //callback(err);
       def.reject(err);
     })
     return def.promise;
   }
 
   return service;
-
-  // helper functions
 
   function getUserFromToken () {
     var token = TokenService.getToken();

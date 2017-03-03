@@ -8,11 +8,6 @@ function IndexController($state, GameService, $scope, UserService, EmailService)
   $scope.games = GameService.query();
   $scope.selectedSystem = $scope.games.system;
 
-  // vm.formatTime = function(dateStr) {
-  // var dt = new Date(dateStr);
-  // return dt.getMonth() + ':' + dt.getDay();
-// }
-
   $scope.setEmail = function(user_email, user_name) {
     $scope.user_email = user_email;
     $scope.user_name = user_name;

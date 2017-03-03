@@ -24,6 +24,8 @@
 ### Known Issues
 * Site is not mobile or small screen friendly.
 * No error message if you log in with bad Credentials.
+* Message form does not empty out after each message.
+* After creating or deleting a game page is not updated(fixed with temporary full page refresh)
 
 ### Future updates
 * Ability to create and customize a profile page.

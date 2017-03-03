@@ -18,8 +18,10 @@
 
 ### Getting Started
 1. The Website can be reached  [Here](http://squad-up-project.herokuapp.com/)
-2. You are able to browse all game listings without an accout.
-3. Sign up to create game listings of your own and to message others who have already created listings.
+2. The Trello can be reached  [Here](https://trello.com/b/HdwQQU0O/squadup-project)
+3. The Github can be reached  [Here](https://github.com/chris-baird/squad-up)
+4. You are able to browse all game listings without an accout.
+5. Sign up to create game listings of your own and to message others who have already created listings.
 
 ### Known Issues
 * Site is not mobile or small screen friendly.

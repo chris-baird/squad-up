@@ -97,14 +97,22 @@
 
 .margin-auto {
   height: 90%;
-    width:100%;
-    display:flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .inline {
   display: inline-block;
+}
+
+.sign-up-header {
+  margin-left: -7%;
+}
+
+.sign-up-btn {
+  margin-left: 15%;
 }
 
 

@@ -13,8 +13,9 @@ function IndexController($state, GameService, $scope, UserService, EmailService)
   return dt.getMonth() + ':' + dt.getDay();
 }
 
-  $scope.setEmail = function(user_email) {
+  $scope.setEmail = function(user_email, user_name) {
     $scope.user_email = user_email;
+    $scope.user_name = user_name;
   }
 
   vm.sendEmail = function(email) {

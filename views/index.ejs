@@ -35,7 +35,7 @@
         <div class="row">
           <div class="col s6">
             <label for="game_name">Name Of Game</label>
-            <input ng-model="navCtrl.gameName" maxlength="19" type="text" id="game_name" required><br>
+            <input ng-model="navCtrl.gameName" maxlength="25" type="text" id="game_name" required><br>
             <label for="game_platform">Platform</label>
             <select id="game_platform" ng-model="navCtrl.system">
               <option value="" disabled selected>Choose your option</option>
@@ -99,23 +99,23 @@
     <div class="col s2 navbar-fixed">
       <form action="" id="side-nav" ng-hide="navCtrl.isState('signup')">
         <div class="input-field" ng-hide="navCtrl.isState('login')">
-          <label for="first_name">Search For A Game</label>
+          <!-- <label for="first_name">Search For A Game</label> -->
+          <p>Search For A Game</p>
           <input placeholder="Halo..." id="first_name" type="text" class="validate" ng-model="search.gameName">
+          <!-- <label for="first_name">Select A System</label> -->
+          <p>Select A Platform</p>
           <select class="form-control" ng-model="navCtrl.filterSystem">
             <option value="all">All</option>
             <option ng-repeat="system in navCtrl.uniqueSystems" value="{{system}}">{{system}}</option>
           </select>
+          <p>Microphone Required?</p>
           <select ng-model="navCtrl.filterMic" ng-change="navCtrl.timeout()">
             <option value="all">All</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
           </select>
-          <select>
-            <option value="all">Any Time</option>
-            <option value="true">Newest</option>
-            <option value="">Oldest</option>
-          </select>
         </div>
+        <br>
         <div ng-show="navCtrl.isState('mygames')">
           <a class='btn' data-target='demoModal' modal>Add Game</a>
         </div>

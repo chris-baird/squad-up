@@ -11,14 +11,14 @@
     <small><p id="mic-req-p"><strong>Microphone required |</strong> {{game.micReq ? 'Yes' : 'No'}}</p></small>
     <small><p class="lang-creat-margin"><strong>Language:</strong> {{game.lang}}</p></small>
     <small><p class="inline lang-creat-margin""><strong>Created At:</strong> {{indexCtrl.formatTime(game.date)}}</p></small>
-    <a href="#modal1" ng-click="setEmail(game.user.email)" ng-show="navCtrl.isLoggedIn()" id="msg-btn" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">email</i></a>
+    <a href="#modal1" ng-click="setEmail(game.user.email, game.gamerId)" ng-show="navCtrl.isLoggedIn()" id="msg-btn" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">email</i></a>
   </div>
 </div>
 
 <!-- Message Modal -->
 <div id="modal1" class="modal">
   <div class="modal-content">
-    <h4>Send Message To {{user_email}}</h4>
+    <h4>Send Message To {{user_name}}</h4>
     <input placeholder="Your Gamer Name Here..." type="text" class="validate" ng-model="indexCtrl.subject">
     <textarea class="materialize-textarea" placeholder="Your Message Here..." ng-model="indexCtrl.text"></textarea>
     <a class='btn validate modal-close' ng-click="indexCtrl.sendEmail(user_email)">Send Message</a>

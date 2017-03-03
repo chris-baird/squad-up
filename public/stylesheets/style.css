@@ -77,7 +77,6 @@
 }
 
 #mic-req-p {
-  /*margin-top: 65px;*/
   margin-bottom: 5px;
 }
 
@@ -113,6 +112,10 @@
 
 .sign-up-btn {
   margin-left: 15%;
+}
+
+.log-in-btn {
+  margin-left: 33%;
 }
 
 

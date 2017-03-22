@@ -82,13 +82,13 @@
     <nav id="main-nav" class="">
       <div class="nav-wrapper">
         <ul class="left">
-          <li>&nbsp;&nbsp;<a ui-sref="home" class="left brand-logo">Squad Up</a></li>
+          <li>&nbsp;&nbsp;<a ui-sref="home" id="brand-name" class="left brand-logo">Squad Up</a></li>
         </ul>
         <ul class="right">
           <li><a ui-sref="home" ng-hide="navCtrl.isLoggedIn()">All Games</a></li>
           <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="home">All Games</a></li>
           <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="mygames">My Games</a></li>
-          <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a class='btn' data-target='demoModal' modal>Add Game</a></li>
+          <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a id="add-game-btn" class='' data-target='demoModal' modal>Add Game</a></li>
           <li ng-hide="navCtrl.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="logged-out-dropdown"><i class="material-icons right">perm_identity</i></a></li>
           <li ng-show="navCtrl.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="logged-in-dropdown"><i class="material-icons right">perm_identity</i></a></li>
         </ul>

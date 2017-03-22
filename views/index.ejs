@@ -88,6 +88,7 @@
           <li><a ui-sref="home" ng-hide="navCtrl.isLoggedIn()">All Games</a></li>
           <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="home">All Games</a></li>
           <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a ui-sref="mygames">My Games</a></li>
+          <li ng-show="navCtrl.isLoggedIn()" ui-sref-active="active"><a class='btn' data-target='demoModal' modal>Add Game</a></li>
           <li ng-hide="navCtrl.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="logged-out-dropdown"><i class="material-icons right">perm_identity</i></a></li>
           <li ng-show="navCtrl.isLoggedIn()"><a class="dropdown-button" href="#!" data-activates="logged-in-dropdown"><i class="material-icons right">perm_identity</i></a></li>
         </ul>
@@ -97,32 +98,42 @@
   <br>
   <!-- Side Nav -->
   <div class="row">
-    <div class="col s2 navbar-fixed">
-      <form action="" id="side-nav" ng-hide="navCtrl.isState('signup')">
-        <div class="input-field" ng-hide="navCtrl.isState('login')">
-          <!-- <label for="first_name">Search For A Game</label> -->
-          <p>Search For A Game</p>
-          <input placeholder="Halo..." id="first_name" type="text" class="validate" ng-model="search.gameName">
-          <!-- <label for="first_name">Select A System</label> -->
-          <p>Select A Platform</p>
-          <select class="form-control" ng-model="navCtrl.filterSystem">
-            <option value="all">All</option>
-            <option ng-repeat="system in navCtrl.uniqueSystems" value="{{system}}">{{system}}</option>
-          </select>
-          <p>Microphone Required?</p>
-          <select ng-model="navCtrl.filterMic" ng-change="navCtrl.timeout()">
-            <option value="all">All</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
+    <div id="filter-nav-wrap">
+    <form action="" id="side-nav" ng-hide="navCtrl.isState('signup')">
+      <div class="input-field" ng-hide="navCtrl.isState('login')">
+        <div class="col s4">
+        <p>Search For A Game</p>
+        <input placeholder="Halo..." id="first_name" type="text" class="validate" ng-model="search.gameName">
         </div>
-        <br>
-        <div ng-show="navCtrl.isState('mygames')">
-          <a class='btn' data-target='demoModal' modal>Add Game</a>
+        <div class="col s4">
+        <p>Select A Platform</p>
+        <select class="form-control" ng-model="navCtrl.filterSystem">
+          <option value="all">All</option>
+          <option ng-repeat="system in navCtrl.uniqueSystems" value="{{system}}">{{system}}</option>
+        </select>
         </div>
-      </form>
+        <div class="col s4">
+        <p>Microphone Required?</p>
+        <select ng-model="navCtrl.filterMic" ng-change="navCtrl.timeout()">
+          <option value="all">All</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        </div>
+      </div>
+      <br>
+      <!-- <div ng-show="navCtrl.isState('mygames')">
+        <a class='btn' data-target='demoModal' modal>Add Game</a>
+      </div> -->
+    </form>
     </div>
-    <div ui-view id="ui-view-id" class="col s10"></div>
+  </div>
+
+  <!-- <div classng-show="navCtrl.isState('mygames')">
+    <a class='btn' data-target='demoModal' modal>Add Game</a>
+  </div> -->
+  <div class="row">
+    <div ui-view id="ui-view-id" class="col s12"></div>
   </div>
   <script>
     $(document).ready(function() {

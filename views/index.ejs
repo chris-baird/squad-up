@@ -13,6 +13,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body ng-controller="NavController as navCtrl">
 
@@ -101,18 +102,18 @@
     <div id="filter-nav-wrap">
     <form action="" id="side-nav" ng-hide="navCtrl.isState('signup')">
       <div class="input-field" ng-hide="navCtrl.isState('login')">
-        <div class="col s4">
+        <div class="col l4">
         <p>Search For A Game</p>
         <input placeholder="Halo..." id="first_name" type="text" class="validate" ng-model="search.gameName">
         </div>
-        <div class="col s4">
+        <div class="col l4">
         <p>Select A Platform</p>
         <select class="form-control" ng-model="navCtrl.filterSystem">
           <option value="all">All</option>
           <option ng-repeat="system in navCtrl.uniqueSystems" value="{{system}}">{{system}}</option>
         </select>
         </div>
-        <div class="col s4">
+        <div class="col l4">
         <p>Microphone Required?</p>
         <select ng-model="navCtrl.filterMic" ng-change="navCtrl.timeout()">
           <option value="all">All</option>

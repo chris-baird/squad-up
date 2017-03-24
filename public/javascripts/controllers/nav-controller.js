@@ -40,7 +40,7 @@ function NavController($timeout, $state, UserService, GameService, TokenService)
       gamerId: vm.gamerId,
       user: user
     }, function(data) {
-      $state.go('mygames');
+      $state.go('home');
       window.location.reload();
     });
   };

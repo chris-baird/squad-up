@@ -126,5 +126,13 @@ body {
   .login-signup-wrap {
     width: 80%;
   }
+
+  #game-card {
+    margin: auto;
+  }
+
+  #modal1 {
+    width: 100%;
+  }
 }
 

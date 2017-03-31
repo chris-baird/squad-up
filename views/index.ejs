@@ -105,14 +105,14 @@
         <p>Search For A Game</p>
         <input placeholder="Halo..." id="first_name" type="text" class="validate" ng-model="search.gameName">
         </div>
-        <div class="col l4">
+        <div class="col l4 s12">
         <p>Select A Platform</p>
         <select class="form-control" ng-model="navCtrl.filterSystem">
           <option value="all">All</option>
           <option ng-repeat="system in navCtrl.uniqueSystems" value="{{system}}">{{system}}</option>
         </select>
         </div>
-        <div class="col l4">
+        <div class="col l4 s12">
         <p>Microphone Required?</p>
         <select ng-model="navCtrl.filterMic" ng-change="navCtrl.timeout()">
           <option value="all">All</option>

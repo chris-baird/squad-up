@@ -23,7 +23,6 @@ const login = (req, res, next) => {
   User.findOne({email: req.body.email}).exec().then(user => {
     if (!user) return res.status(401).json({err: 'bad credentials'});
     user.comparePassword(req.body.password, (err, isMatch) => {
-console.log('isMatch: ', isMatch)
       if (isMatch) {
         auth.createToken(user, res);
         res.json({msg: 'logged in successfully', user_id: user._id});

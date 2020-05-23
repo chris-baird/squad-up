@@ -1,13 +1,7 @@
 const Game = require('../models/game');
 const ObjectId = require('mongoose').Schema.Types.ObjectId;
 
-module.exports = {
-  getAllGames,
-  createGame,
-  deleteGame
-};
-
-const getAllGames = (req, res, next)=> {
+const getAllGames = (req, res, next) => {
   Game.find({}).populate('user').exec().then(games => {
     res.json(games);
   }).catch(err => res.status(500).json(err));
@@ -25,4 +19,10 @@ const deleteGame = (req, res, next) => {
     res.json(deletedGame);
   }).catch(err => res.status(400).json(err));
 }
+
+module.exports = {
+  getAllGames,
+  createGame,
+  deleteGame
+};
 

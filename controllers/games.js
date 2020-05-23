@@ -1,5 +1,5 @@
-var Game = require('../models/game');
-var ObjectId = require('mongoose').Schema.Types.ObjectId;
+const Game = require('../models/game');
+const ObjectId = require('mongoose').Schema.Types.ObjectId;
 
 module.exports = {
   getAllGames,

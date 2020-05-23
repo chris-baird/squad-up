@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var userCtrl = require('../controllers/users');
-var gameCtrl = require('../controllers/games');
-var mailCtrl = require('../controllers/mail');
+const express = require('express');
+const router = express.Router();
+const userCtrl = require('../controllers/users');
+const gameCtrl = require('../controllers/games');
+const mailCtrl = require('../controllers/mail');
 
 
 

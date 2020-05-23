@@ -1,4 +1,5 @@
-# Squad Up
+# Squad Up <img style="float: right;" src="https://img.shields.io/badge/Version-1.0.0-orange"> <img style="float: right;" src="https://img.shields.io/badge/Build-Passing-blue"> <img style="float: right;" src="https://img.shields.io/badge/Licence-MIT-green">
+
 
 ## Table of contents
 * [General info](#general-info)
@@ -41,3 +42,4 @@ Squad Up is for all the die hard video game fans out there simply looking for ne
 
 ## Contact
 Created by [Chris Baird](http://chrisbairddesign.com) - feel free to contact me!
+

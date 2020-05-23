@@ -20,7 +20,7 @@ const createGame = (req, res, next) => {
   }).catch(err => res.status(400).json(err));
 }
 
-function deleteGame(req, res, next) {
+const deleteGame = (req, res, next) => {
   Game.findByIdAndRemove(req.params.id).then(deletedGame => {
     res.json(deletedGame);
   }).catch(err => res.status(400).json(err));

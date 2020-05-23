@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 mongoose.connect(process.env.DATABASE_URL);
 

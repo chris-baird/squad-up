@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-function sendMail(req, res, next) {
+const sendMail = (req, res, next) => {
   const mailOptions = {
     from: process.env.EMAILSERVICEUSER,
     to: req.body.to,

@@ -12,7 +12,7 @@ module.exports = {
   userGames
 };
 
-function create(req, res, next) {
+const create = (req, res, next) => {
   User.create(req.body).then(user => {
     auth.createToken(user, res);
     res.json({msg: 'signed up successfully'});

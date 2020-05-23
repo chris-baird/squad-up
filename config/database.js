@@ -10,6 +10,6 @@ db.once('open',  () => {
   console.log(`Mongoose connected to: ${process.env.DATABASE_URL}`);
 });
 
-db.on('error', function(err) {
+db.on('error', (err) => {
   console.error(`Database error:\n${err}`);
 })

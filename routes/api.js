@@ -14,7 +14,7 @@ router.get('/users/me', userCtrl.me);
 router.get('/games', gameCtrl.getAllGames);
 
 // Auth middleware (routes below need authentication)
-router.use(function(req, res, next) {
+router.use((req, res, next) => {
   if (req.user) return next();
   return res.status(401).json({msg: 'not authenticated'});
 });

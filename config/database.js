@@ -6,7 +6,7 @@ const db = mongoose.connection;
 
 mongoose.connect(process.env.DATABASE_URL);
 
-db.once('open', function () {
+db.once('open',  () => {
   console.log(`Mongoose connected to: ${process.env.DATABASE_URL}`);
 });
 

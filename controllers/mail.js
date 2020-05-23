@@ -1,10 +1,5 @@
 const nodemailer = require('nodemailer');
 
-module.exports = {
-  sendMail
-};
-
-
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
@@ -28,3 +23,7 @@ const sendMail = (req, res, next) => {
     }
   });
 }
+
+module.exports = {
+  sendMail
+};

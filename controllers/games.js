@@ -13,7 +13,7 @@ const getAllGames = (req, res, next)=> {
   }).catch(err => res.status(500).json(err));
 }
 
-function createGame(req, res, next) {
+const createGame = (req, res, next) => {
   req.body.user = req.user._id;
   Game.create(req.body).then(newGame => {
     res.status(201).json(newGame);

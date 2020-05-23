@@ -1,8 +1,8 @@
-var User = require('../models/user');
-var jwt = require('jsonwebtoken');
-var auth = require('../config/auth');
-var Game = require('../models/game');
-var SECRET = process.env.SECRET;
+const User = require('../models/user');
+const jwt = require('jsonwebtoken');
+const auth = require('../config/auth');
+const Game = require('../models/game');
+const SECRET = process.env.SECRET;
 
 module.exports = {
   create,

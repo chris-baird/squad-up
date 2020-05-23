@@ -1,9 +1,9 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6;
 
-var userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: String,
   email: {type: String, lowercase: true, unique: true},
   password: String
@@ -17,7 +17,7 @@ userSchema.set('toJSON', {
 });
 
 userSchema.pre('save', function(next) {
-  var user = this;
+  const user = this;
   if (!user.isModified('password')) return next();
   bcrypt.hash(user.password, SALT_ROUNDS, function(err, hash) {
     if (err) return next(err);

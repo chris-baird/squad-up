@@ -20,7 +20,7 @@ const sendMail = (req, res, next) => {
     subject: req.body.subject,
     text: req.body.text
   };
-  transporter.sendMail(mailOptions, function(err, info) {
+  transporter.sendMail(mailOptions, (err, info) => {
     if(err) {
       res.status(500).json(err);
     } else {

@@ -43,7 +43,7 @@ const me = (req, res, next) => {
 }
 
 const userGames = (req, res, next) => {
-  Game.find({user: req.user._id}, function(err, games) {
+  Game.find({user: req.user._id}, (err, games) => {
     if (err) {
       res.send(err);
     } else {

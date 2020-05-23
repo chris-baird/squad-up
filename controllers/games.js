@@ -7,7 +7,7 @@ module.exports = {
   deleteGame
 };
 
-function getAllGames(req, res, next) {
+const getAllGames = (req, res, next)=> {
   Game.find({}).populate('user').exec().then(games => {
     res.json(games);
   }).catch(err => res.status(500).json(err));

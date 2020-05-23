@@ -1,29 +1,20 @@
-var User = require('../models/user');
-var jwt = require('jsonwebtoken');
-var auth = require('../config/auth');
-var Game = require('../models/game');
-var SECRET = process.env.SECRET;
+const User = require('../models/user');
+const jwt = require('jsonwebtoken');
+const auth = require('../config/auth');
+const Game = require('../models/game');
+const SECRET = process.env.SECRET;
 
-module.exports = {
-  create,
-  login,
-  logout,
-  me,
-  userGames
-};
-
-function create(req, res, next) {
+const create = (req, res, next) => {
   User.create(req.body).then(user => {
     auth.createToken(user, res);
     res.json({msg: 'signed up successfully'});
   }).catch( err => res.status(400).json(err) );
 }
 
-function login(req, res, next) {
+const login = (req, res, next) => {
   User.findOne({email: req.body.email}).exec().then(user => {
     if (!user) return res.status(401).json({err: 'bad credentials'});
     user.comparePassword(req.body.password, (err, isMatch) => {
-console.log('isMatch: ', isMatch)
       if (isMatch) {
         auth.createToken(user, res);
         res.json({msg: 'logged in successfully', user_id: user._id});
@@ -34,17 +25,17 @@ console.log('isMatch: ', isMatch)
   }).catch(err => res.status(401).json(err));
 }
 
-function logout(req, res, next) {
+const logout = (req, res, next) => {
   req.session.userId = null;
   res.status(200).json({});
 }
 
-function me(req, res, next) {
+const me = (req, res, next) => {
   res.json(req.user);
 }
 
-function userGames(req, res, next) {
-  Game.find({user: req.user._id}, function(err, games) {
+const userGames = (req, res, next) => {
+  Game.find({user: req.user._id}, (err, games) => {
     if (err) {
       res.send(err);
     } else {
@@ -52,5 +43,13 @@ function userGames(req, res, next) {
     }
   })
 }
+
+module.exports = {
+  create,
+  login,
+  logout,
+  me,
+  userGames
+};
 
 

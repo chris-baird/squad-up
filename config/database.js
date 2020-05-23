@@ -1,15 +1,15 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 mongoose.connect(process.env.DATABASE_URL);
 
-db.once('open', function () {
+db.once('open',  () => {
   console.log(`Mongoose connected to: ${process.env.DATABASE_URL}`);
 });
 
-db.on('error', function(err) {
+db.on('error', (err) => {
   console.error(`Database error:\n${err}`);
 })

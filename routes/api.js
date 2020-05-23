@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var userCtrl = require('../controllers/users');
-var gameCtrl = require('../controllers/games');
-var mailCtrl = require('../controllers/mail');
+const express = require('express');
+const router = express.Router();
+const userCtrl = require('../controllers/users');
+const gameCtrl = require('../controllers/games');
+const mailCtrl = require('../controllers/mail');
 
 
 
@@ -14,7 +14,7 @@ router.get('/users/me', userCtrl.me);
 router.get('/games', gameCtrl.getAllGames);
 
 // Auth middleware (routes below need authentication)
-router.use(function(req, res, next) {
+router.use((req, res, next) => {
   if (req.user) return next();
   return res.status(401).json({msg: 'not authenticated'});
 });

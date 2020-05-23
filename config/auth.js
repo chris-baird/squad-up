@@ -1,8 +1,8 @@
-var jwt = require('jsonwebtoken');
-var SECRET = process.env.SECRET;
+const jwt = require('jsonwebtoken');
+const SECRET = process.env.SECRET;
 
-module.exports.createToken = function(user, res) {
-  var token = jwt.sign(
+module.exports.createToken = (user, res) => {
+  const token = jwt.sign(
     {user: user},
     SECRET,
     {expiresIn: '24h'}
@@ -11,11 +11,11 @@ module.exports.createToken = function(user, res) {
   return token;
 }
 
-module.exports.verifyToken = function(req, res, next) {
-  var token = req.body.token || req.query.token || req.get('Authorization');
+module.exports.verifyToken = (req, res, next) => {
+  let token = req.body.token || req.query.token || req.get('Authorization');
   if (token) {
     token = token.replace('Bearer ', '');
-    jwt.verify(token, SECRET, function(err, decoded) {
+    jwt.verify(token, SECRET, (err, decoded) => {
       if (!err) {
         req.user = decoded.user;
         next();

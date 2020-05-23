@@ -33,7 +33,7 @@ const login = (req, res, next) => {
   }).catch(err => res.status(401).json(err));
 }
 
-function logout(req, res, next) {
+const logout = (req, res, next) => {
   req.session.userId = null;
   res.status(200).json({});
 }

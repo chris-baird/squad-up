@@ -4,14 +4,6 @@ const auth = require('../config/auth');
 const Game = require('../models/game');
 const SECRET = process.env.SECRET;
 
-module.exports = {
-  create,
-  login,
-  logout,
-  me,
-  userGames
-};
-
 const create = (req, res, next) => {
   User.create(req.body).then(user => {
     auth.createToken(user, res);
@@ -51,5 +43,13 @@ const userGames = (req, res, next) => {
     }
   })
 }
+
+module.exports = {
+  create,
+  login,
+  logout,
+  me,
+  userGames
+};
 
 

@@ -38,7 +38,7 @@ const logout = (req, res, next) => {
   res.status(200).json({});
 }
 
-function me(req, res, next) {
+const me = (req, res, next) => {
   res.json(req.user);
 }
 

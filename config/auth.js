@@ -12,7 +12,7 @@ module.exports.createToken = (user, res) => {
 }
 
 module.exports.verifyToken = (req, res, next) => {
-  const token = req.body.token || req.query.token || req.get('Authorization');
+  let token = req.body.token || req.query.token || req.get('Authorization');
   if (token) {
     token = token.replace('Bearer ', '');
     jwt.verify(token, SECRET, (err, decoded) => {

@@ -11,7 +11,7 @@ module.exports.createToken = (user, res) => {
   return token;
 }
 
-module.exports.verifyToken = function(req, res, next) {
+module.exports.verifyToken = (req, res, next) => {
   const token = req.body.token || req.query.token || req.get('Authorization');
   if (token) {
     token = token.replace('Bearer ', '');

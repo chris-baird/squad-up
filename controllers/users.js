@@ -42,7 +42,7 @@ const me = (req, res, next) => {
   res.json(req.user);
 }
 
-function userGames(req, res, next) {
+const userGames = (req, res, next) => {
   Game.find({user: req.user._id}, function(err, games) {
     if (err) {
       res.send(err);
